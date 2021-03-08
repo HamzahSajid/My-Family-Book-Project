@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Family Book</title>
+    <style>
+        .main_heading{
+            text-align: center;
+        }
+        .family_member_image_container{
+            display: flex;
+            justify-content: center;
+        }
+        #family_member_image{
+            height: 350px;
+            width: 300px;
+        }
+        .family_member_name_lable{
+            text-align: center;
+        }
+        .button_row_container{
+            display: flex;
+            justify-content: center;
+        }
+        #manual_see_button{
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main_heading">My Family Book</h1>
+    <br>
+    <div class="family_member_image_container">
+        <img src="image/family_book_cover.jpg" id="family_member_image">
+    </div>
+    <br>
+    <div class="family_member_name_container">
+        <h3 class="family_member_name_lable" id="family_member_name">My Family Book</h3>
+    </div>
+    <br>
+    <span class="button_row_container">
+        <button id="manual_see_button" onclick="next()">Next</button>
+        <button id="automatic_see_button" onclick="auto_play()">Auto Play</button>
+    </span>
+    <script>
+        var family_member_image_array = ['image/father.jpg', 'image/mother.jpg', 'image/hamzah.jpg', 'image/sister_asiya.jpg', 'image/sister_saffiya.jpg'];
+        var family_member_name_array = ['Father Sajid Matloob', 'Mother Fauzia Rahman', 'Big Brother Hamzah Sajid', 'Small Sister Asiyah Azzahra', 'Smallest Sister Saffiya Sajid'];
+        var i = 0;
+        function next(){
+            if(i > 4){
+                i = 0;
+            }
+            document.getElementById('family_member_image').src = family_member_image_array[i];
+            document.getElementById('family_member_name').innerHTML = family_member_name_array[i];
+            i++;
+        }
+        function auto_play(){
+            console.log(i);
+            document.getElementById('family_member_image').src = family_member_image_array[0];
+            document.getElementById('family_member_name').innerHTML = family_member_name_array[0];
+            setTimeout(() => {  
+            document.getElementById('family_member_image').src = family_member_image_array[1];
+            document.getElementById('family_member_name').innerHTML = family_member_name_array[1];
+             }, 1000);
+             setTimeout(() => {  
+            document.getElementById('family_member_image').src = family_member_image_array[2];
+            document.getElementById('family_member_name').innerHTML = family_member_name_array[2];
+             }, 2000);
+             setTimeout(() => {  
+            document.getElementById('family_member_image').src = family_member_image_array[3];
+            document.getElementById('family_member_name').innerHTML = family_member_name_array[3];
+             }, 3000);
+             setTimeout(() => {  
+            document.getElementById('family_member_image').src = family_member_image_array[4];
+            document.getElementById('family_member_name').innerHTML = family_member_name_array[4];
+             }, 4000);
+             setTimeout(() => {  
+            document.getElementById('family_member_image').src = 'image/family_book_cover.jpg';
+            document.getElementById('family_member_name').innerHTML = "My Family Book";
+             }, 5000);
+        }
+    </script>
+</body>
+</html>
